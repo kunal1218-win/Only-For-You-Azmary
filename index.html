@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Azmary 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(270deg,#ff4ecd,#6a5cff,#00eaff);
+  background-size:600% 600%;
+  animation:bg 10s infinite;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.page{display:none;height:100vh;padding:20px;}
+.active{display:block;}
+
+.cat{font-size:90px;animation:bounce 2s infinite;}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+}
+
+/* rose */
+#lid{
+  width:300px;height:80px;
+  margin:40px auto -40px;
+  background:linear-gradient(#ff4d6d,#ff85a2);
+  border-radius:20px 20px 0 0;
+  cursor:pointer;
+}
+.open{animation:fall 1s forwards;}
+@keyframes fall{to{transform:translateY(300px);opacity:0}}
+
+#box{
+  display:none;
+  background:white;
+  color:#333;
+  max-width:360px;
+  margin:40px auto;
+  padding:20px;
+  border-radius:20px;
+}
+
+#typingText{line-height:1.6;white-space:pre-wrap}
+.cursor{animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  margin-top:15px;
+}
+#heartBtn{display:none;background:#ff4ecd;color:white}
+
+/* panels */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  max-width:380px;
+  margin:20px auto;
+}
+.panel{
+  background:rgba(255,255,255,0.2);
+  border-radius:20px;
+  padding:10px;
+  cursor:pointer;
+}
+.panel img{width:100%;border-radius:15px;}
+.panel p{display:none;font-size:0.9rem}
+
+/* yes no */
+#yes{background:#00ff9d}
+#no{background:#ff4e4e;position:absolute}
+
+/* fireworks */
+.firework{
+  position:absolute;
+  font-size:30px;
+  animation:boom 1.5s forwards;
+}
+@keyframes boom{
+  0%{transform:scale(0)}
+  100%{transform:scale(3);opacity:0}
+}
+
+/* final animation */
+.final-wrap{
+  animation:slowZoom 6s ease-in-out infinite alternate;
+}
+@keyframes slowZoom{
+  from{transform:scale(1)}
+  to{transform:scale(1.08)}
+}
+.wife-text{
+  font-size:1.6rem;
+  animation:heartbeat 1.8s infinite, glow 3s infinite;
+}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+@keyframes glow{
+  0%{text-shadow:0 0 10px #ff4ecd}
+  50%{text-shadow:0 0 25px #fff}
+  100%{text-shadow:0 0 10px #ff4ecd}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="p1" class="page active">
+  <h1>🎆 Happy New Year Azmary 🎆</h1>
+  <p>You made my year special 💖</p>
+  <div class="cat">🐱</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" class="page">
+  <h2>Tap the rose 🌹</h2>
+  <div id="lid"></div>
+  <div id="box">
+    <p id="typingText"></p>
+    <button id="heartBtn" onclick="switchPage(2,3)">Open My Heart ❤️</button>
+  </div>
+</div>
+
+<!-- PAGE 3 : 4 PANELS -->
+<div id="p3" class="page">
+  <h2>My Feelings For You 💖</h2>
+  <div class="grid">
+    <div class="panel" onclick="toggle(this)">
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a">
+      <p>You make my world softer 🐾</p>
+    </div>
+    <div class="panel" onclick="toggle(this)">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <p>My heart feels safe 💗</p>
+    </div>
+    <div class="panel" onclick="toggle(this)">
+      <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4">
+      <p>Every memory is precious 🌸</p>
+    </div>
+    <div class="panel" onclick="toggle(this)">
+      <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22">
+      <p>I choose you always 🌙</p>
+    </div>
+  </div>
+  <button onclick="switchPage(3,4)">Next 💌</button>
+</div>
+
+<!-- PAGE 4 : YES NO -->
+<div id="p4" class="page">
+  <div class="cat">🐱</div>
+  <p style="font-size:1.4rem;">Azmary, will you accept my proposal?</p>
+  <button id="yes" onclick="yesClick()">YES 💖</button>
+  <button id="no">NO 😜</button>
+</div>
+
+<!-- PAGE 5 : FINAL -->
+<div id="p5" class="page">
+  <div class="final-wrap">
+    <h1>🎉 CONGRATULATIONS 🎉</h1>
+    <div class="cat">😺💍</div>
+    <p class="wife-text">
+      You are my wife 💖<br>
+      Forever & Always ♾️
+    </p>
+  </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgSong" loop>
+  <source src="montage-miau.mp3">
+</audio>
+<audio id="meow">
+  <source src="https://www.fesliyanstudios.com/play-mp3/6556">
+</audio>
+
+<script>
+const bg=document.getElementById("bgSong");
+const meow=document.getElementById("meow");
+
+/* music untouched */
+document.addEventListener("click",()=>{
+  bg.play();bg.volume=0.6;
+},{once:true});
+
+/* auto only first */
+setTimeout(()=>switchPage(1,2),4000);
+
+function switchPage(a,b){
+  document.getElementById("p"+a).classList.remove("active");
+  document.getElementById("p"+b).classList.add("active");
+  meow.play();
+}
+
+/* typing */
+const text=`This New Year feels magical because of you.
+
+Your smile is my favorite beginning.
+
+I don’t want perfect moments,
+I want moments with you.
+
+Every year, every season,
+my choice will always be you. 💫`;
+
+let started=false;
+document.getElementById("lid").onclick=()=>{
+  if(started) return;
+  started=true;
+  document.getElementById("lid").classList.add("open");
+  document.getElementById("box").style.display="block";
+  let p=document.getElementById("typingText");
+  let btn=document.getElementById("heartBtn");
+  let i=0;
+  let c=document.createElement("span");
+  c.className="cursor";c.innerHTML="|";
+  p.appendChild(c);
+  let t=setInterval(()=>{
+    if(i<text.length){
+      c.remove();p.innerHTML+=text[i++];p.appendChild(c);
+    }else{
+      c.remove();clearInterval(t);
+      btn.style.display="inline-block";
+    }
+  },50);
+};
+
+function toggle(el){
+  const p=el.querySelector("p");
+  p.style.display=p.style.display==="block"?"none":"block";
+}
+
+/* NO escape */
+const noBtn=document.getElementById("no");
+noBtn.onmouseover=()=>{
+  noBtn.style.left=Math.random()*80+"vw";
+  noBtn.style.top=Math.random()*80+"vh";
+};
+
+/* YES */
+function yesClick(){
+  switchPage(4,5);
+  for(let i=0;i<25;i++){
+    let f=document.createElement("div");
+    f.className="firework";
+    f.innerHTML="🎆";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*100+"vh";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+  }
+}
+</script>
+
+</body>
+</html>
